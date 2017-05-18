@@ -10,5 +10,5 @@ lastmodifieremail = "andy@andynicholas.com"
 
 +++
 
-### ![siLib Logo](/images/siLib_logo2.svg#headerlogo) **siLib**
+### ![siLib Logo](images/siLib_logo2.svg#headerlogo) **siLib**
 
