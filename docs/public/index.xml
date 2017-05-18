@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>siLib</title>
+    <link>https://fxnut.github.io/siLib/</link>
+    <description>Recent content on siLib</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://fxnut.github.io/siLib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Help Cards</title>
+      <link>https://fxnut.github.io/siLib/silib_helpcards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/silib_helpcards/</guid>
+      <description> SOPs  siLib Turbulize Attribute  VOPs  siLib Turbulize   </description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>https://fxnut.github.io/siLib/silib_installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/silib_installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>header</title>
+      <link>https://fxnut.github.io/siLib/_header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/_header/</guid>
+      <description> siLib </description>
+    </item>
+    
+    <item>
+      <title>siLib Turbulize Attribute SOP</title>
+      <link>https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/</guid>
+      <description>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.
+This page also gives details on the corresponding VEX noise functions that you can use in your own VEX code.</description>
+    </item>
+    
+    <item>
+      <title>siLib Turbulize VOP</title>
+      <link>https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/</guid>
+      <description>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.
+This page also gives details on the corresponding VEX noise functions that you can use in your own VEX code.</description>
+    </item>
+    
+  </channel>
+</rss>

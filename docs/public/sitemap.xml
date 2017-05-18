@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/silib_helpcards/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/helpcards/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/silib_installation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/</loc>
+  </url>
+  
+</urlset>
