@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.20.7" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>siLib Turbulize VOP :: siLib</title>
+    <link href="/siLib/css/nucleus.css" rel="stylesheet">
+    <link href="/siLib/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/siLib/css/hybrid.css" rel="stylesheet">
+    <link href="/siLib/css/featherlight.min.css" rel="stylesheet">
+    <link href="/siLib/css/horsey.css" rel="stylesheet">
+    <link href="/siLib/css/theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="/siLib/css/bootstrap.min.css">
+    <script src="/siLib/js/jquery-2.x.min.js"></script>
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+    
+
+    
+<link rel="stylesheet" type="text/css" href="/siLib.css">
+  </head>
+  <body class="" data-url="/siLib/helpcards/vops/silib_turbulize_vop/">
+    
+<nav id="sidebar" class="">
+  <div id="header-wrapper">
+    <div id="header">
+       
+	
+
+<h3 id="silib-logo-images-silib-logo2-svg-headerlogo-silib"><img src="/images/siLib_logo2.svg#headerlogo" alt="siLib Logo" /> <strong>siLib</strong></h3>
+ 
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script type="text/javascript" src="/siLib/js/lunr.min.js"></script>
+<script type="text/javascript" src="/siLib/js/horsey.js"></script>
+<script type="text/javascript">
+    var baseurl = "https:\/\/fxnut.github.io\/siLib\/";
+</script>
+<script type="text/javascript" src="/siLib/js/search.js"></script>
+
+    
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+        
+            <li data-nav-id="/siLib/" class="dd-item">
+            <a href="/siLib/"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+        
+
+        
+        
+        
+        
+        
+            
+    
+    
+    
+    
+        <li data-nav-id="/siLib/silib_installation/" class="dd-item 
+         
+        
+        "
+        >
+            <a href="/siLib/silib_installation/">
+                <span>Installation</span>
+                
+                
+            </a>
+            
+            
+            
+        </li>
+    
+
+        
+            
+    
+    
+    
+    
+        <li data-nav-id="/siLib/silib_helpcards/" class="dd-item 
+         
+        parent
+        "
+        >
+            <a href="/siLib/silib_helpcards/">
+                <span>Help Cards</span>
+                
+                    
+                        <i class="fa fa-angle-down fa-lg category-icon"></i>
+                    
+                
+                
+            </a>
+            
+                
+                
+                
+                    
+                
+            
+            
+            
+                <ul>
+                
+                    
+    
+    
+    
+    
+        <li data-nav-id="/siLib/helpcards/sops/silib_turbulize_attribute_sop/" class="dd-item 
+         
+        
+        "
+        >
+            <a href="/siLib/helpcards/sops/silib_turbulize_attribute_sop/">
+                <span>siLib Turbulize Attribute SOP</span>
+                
+                
+            </a>
+            
+            
+            
+        </li>
+    
+
+                
+                    
+    
+    
+    
+    
+        <li data-nav-id="/siLib/helpcards/vops/silib_turbulize_vop/" class="dd-item 
+        active 
+        
+        "
+        >
+            <a href="/siLib/helpcards/vops/silib_turbulize_vop/">
+                <span>siLib Turbulize VOP</span>
+                
+                
+            </a>
+            
+                
+                
+                
+            
+            
+            
+        </li>
+    
+
+                
+                </ul>
+             
+        </li>
+    
+
+        
+
+        
+
+        
+        
+        
+    </ul>
+    
+     
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                <a href="https://fxnut.github.io/siLib/">
+                  <span class="fa fa-arrow-circle-right" style="font-size:larger" aria-hidden="true"></span>
+                  siLib
+                </a>
+                
+                   / <a href='/siLib/silib_helpcards/'>Help Cards</a> / <a href='/siLib/helpcards/vops/silib_turbulize_vop/'>siLib Turbulize VOP</a>
+                
+                
+            </div>
+            <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#noise-types">Noise Types</a></li>
+<li><a href="#vex-noise-functions">VEX Noise Functions</a></li>
+<li><a href="#parameters">Parameters</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>siLib Turbulize VOP</h1>
+          
+
+
+
+
+<p>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the
+values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.</p>
+
+<p>This page also gives details on the corresponding VEX noise functions that you can use in your own VEX code.</p>
+
+<h2 id="noise-types">Noise Types</h2>
+
+<p>The table below shows the different types of noise available, and the corresponding Vex function that is being called. The <sig> token
+designates the suffix that is used to name the overloads of each noise function according to input and output type. See below for more details.</p>
+
+<table>
+<thead>
+<tr>
+<th>Displayed Name</th>
+<th>siLib Function</th>
+<th>Range</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Perlin</td>
+<td>si_noise <em>&lt;sig&gt;</em></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Simplex</td>
+<td>si_xnoise <em>&lt;sig&gt;</em></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Orig Perlin <strong>*</strong></td>
+<td>si_onoise <em>&lt;sig&gt;</em></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Sparse Convolution <strong>*</strong></td>
+<td>si_snoise <em>&lt;sig&gt;</em></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Alligator <strong>*</strong></td>
+<td>si_anoise <em>&lt;sig&gt;</em></td>
+<td>0 -&gt; +1</td>
+</tr>
+</tbody>
+</table>
+
+<p></p>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Notes</div>
+	<div class="panel-body"><p><strong>*</strong> These types of noise do not support Vector4 types as input.
+The 4th component of frequency and offset will be greyed out.</p>
+
+<p><em><strong>&lt;sig&gt;</strong></em> A two letter suffix designating the return type and input type
+e.g. &ldquo;fv&rdquo; means output type is <em>Float</em>, input type is <em>Vector3</em>. See below for more details.</p>
+</div>
+	
+</div>
+
+
+<p>All of the noise functions but one, are centered around zero and approximately cover the range from -1 to +1. In practice, you&rsquo;ll find
+it rare for values to exceed &plusmn; 0.9.</p>
+
+<p>Alligator noise is different in that you could consider it to be an abs(noise) function. In other words it is centered on zero with a
+range of -1 to +1, but any negative values are made positive to give the final range of 0 to +1. Note that this is very different from
+being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common</p>
+
+<h2 id="vex-noise-functions">VEX Noise Functions</h2>
+
+<p>The following VEX functions are made available so you can easily use these noise functions in your own VEX scripts. To use it, you
+need to import the &ldquo;si_noise.h&rdquo; file like this:</p>
+
+<pre><code>#include &quot;si_noise.h&quot;
+</code></pre>
+
+<div class="notices tip" ><p>If you get errors including this file, check that your HOUDINI_VEX_PATH is set
+(use hconfig on the Houdini command line) and make sure siLib is installed properly.</p>
+</div>
+
+
+<p>The code block below shows the prototypes for the VEX functions. Which input and output type you need will define which function
+you need to use.</p>
+
+<p>You&rsquo;ll notice that the last three noise types only support Vector3 types as input. The Turbulize Attribute node wraps these functions
+for you to emulate support for the <code>ff</code> and <code>vf</code> signatures.</p>
+
+<pre><code>// Perlin Noise
+
+float  si_noiseff (  float pos, freq, offset; float rough; int octaves)
+float  si_noisefv ( vector pos, freq, offset; float rough; int octaves)
+float  si_noisefp (vector4 pos, freq, offset; float rough; int octaves)
+vector si_noisevf (  float pos, freq, offset; float rough; int octaves)
+vector si_noisevv ( vector pos, freq, offset; float rough; int octaves)
+vector si_noisevp (vector4 pos, freq, offset; float rough; int octaves)
+
+
+// Simplex Noise
+
+float  si_xnoiseff(  float pos, freq, offset; float rough; int octaves)
+float  si_xnoisefv( vector pos, freq, offset; float rough; int octaves)
+float  si_xnoisefp(vector4 pos, freq, offset; float rough; int octaves)
+vector si_xnoisevf(  float pos, freq, offset; float rough; int octaves)
+vector si_xnoisevv( vector pos, freq, offset; float rough; int octaves)
+vector si_xnoisevp(vector4 pos, freq, offset; float rough; int octaves)
+
+
+// Orig Perlin Noise
+
+float  si_onoisefv( vector pos, freq, offset; float rough; int octaves)
+vector si_onoisevv( vector pos, freq, offset; float rough; int octaves)
+
+
+// Sparse Convolution Noise
+
+float  si_snoisefv( vector pos, freq, offset; float rough; int octaves)
+vector si_snoisevv( vector pos, freq, offset; float rough; int octaves)
+
+
+// Alligator Noise
+
+float  si_anoisefv( vector pos, freq, offset; float rough; int octaves)
+vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
+</code></pre>
+
+<h2 id="parameters">Parameters</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Signature</td>
+<td>Specifies the input and output types for the VOP node.</td>
+</tr>
+
+<tr>
+<td>Noise Type</td>
+<td>The class of noise to apply. The available options will change depending on the setting of the Signature parameter and/or the data type of the input/output connections.</td>
+</tr>
+
+<tr>
+<td>Position</td>
+<td>The position to evaluate the noise at. You will usually want to connect a node to this input.</td>
+</tr>
+
+<tr>
+<td>Frequency</td>
+<td>The frequency of the noise.</td>
+</tr>
+
+<tr>
+<td>Offset</td>
+<td>A vector to offset the center of the noise. Unlike some of the built-in noise nodes, you shouldn&rsquo;t see any issues when position and offset values are set around {0, 0, 0}. Internally, this is achieved by reflecting each successive layer of noise in each axis.</td>
+</tr>
+
+<tr>
+<td>Octaves</td>
+<td>The number of layers of noise to apply. Each layer uses double the frequency of the previous layer.</td>
+</tr>
+
+<tr>
+<td>Roughness</td>
+<td>Each layer of noise applied has its amplitude multiplied by this amount to progressively reduce the affect. A roughness of 1 means that each layer is applied with exactly the same amplitude as the first. A roughness of 0 will mean that only the first layer of noise has any affect.</td>
+</tr>
+
+<tr>
+<td>Amplitude</td>
+<td>The amplitude of each component of noise.</td>
+</tr>
+</tbody>
+</table>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+      </div>
+    </div>
+
+    
+ 
+    
+
+    <div id="navigation">
+        
+        
+        
+            
+            
+            
+                
+                    
+                
+                
+                
+            
+        
+        
+            
+            
+            
+                
+                    
+                
+                
+                
+                    
+            
+            
+                
+                    
+                
+                
+                
+            
+        
+                
+                    
+            
+            
+                
+                    
+                    
+                
+                
+                
+            
+        
+                
+            
+        
+          
+
+        
+
+
+        
+            <a class="nav nav-prev" href="/siLib/helpcards/sops/silib_turbulize_attribute_sop/" title="siLib Turbulize Attribute SOP"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/siLib/js/clipboard.min.js"></script>
+    <script src="/siLib/js/jquery.sticky-kit.min.js"></script>
+    <script src="/siLib/js/featherlight.min.js"></script>
+    <script src="/siLib/js/html5shiv-printshiv.min.js"></script>
+    <script src="/siLib/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/siLib/js/modernizr.custom.71422.js"></script>
+    <script src="/siLib/js/learn.js"></script>
+    <script src="/siLib/js/hugo-learn.js"></script>
+
+    
+    <link href="/siLib/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/siLib/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+
+    
+
+  </body>
+</html>
+

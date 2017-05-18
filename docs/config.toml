@@ -1,0 +1,6 @@
+baseURL = "https://fxnut.github.io/siLib/"
+languageCode = "en-us"
+title = "siLib"
+theme = "docdock"
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
