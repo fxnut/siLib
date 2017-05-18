@@ -3,5 +3,6 @@ languageCode = "en-us"
 title = "siLib"
 theme = "docdock"
 #relativeURLs = true
+canonifyURLs = true
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
