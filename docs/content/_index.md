@@ -13,7 +13,7 @@ lastmodifieremail = "andy@andynicholas.com"
 # siLib
 
 * User Guide
-   * [Installation](silib_installation)
+   * [Installation]({{< relref "silib_installation.md" >}})
 
 * siLib Documentation
-   * [Help Cards](silib_help_cards)
+   * [Help Cards]({{< relref "silib_helpcards.md" >}})
