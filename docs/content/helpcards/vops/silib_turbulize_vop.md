@@ -44,7 +44,14 @@ it rare for values to exceed &plusmn; 0.9.
 
 Alligator noise is different in that you could consider it to be an abs(noise) function. In other words it is centered on zero with a 
 range of -1 to +1, but any negative values are made positive to give the final range of 0 to +1. Note that this is very different from 
-being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common
+being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common.
+
+## Promoting The "Noise Type" Parameter
+
+Since some of the noise functions only work with certain input/output data types, the drop down for the Noise Type parameter dynamically changes to only
+let you select valid options. This is managed using a Python script stored in the HDA, and the script is automatically copied to any Parameter node that you
+connect to the _noisetype_ input, or when you use either of the "Promote Parameter" or "Promote Subnet Input" options from the middle click port menu. This means
+that your parameter interface will show the valid noise types automatically.
 
 
 ## VEX Noise Functions
