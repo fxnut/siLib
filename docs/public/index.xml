@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://fxnut.github.io/siLib/silib_helpcards/</guid>
-      <description> SOPs  siLib Turbulize Attribute  VOPs  siLib Turbulize   </description>
+      <description> SOPs  siLib Turbulize Attribute SOP  DOPs  siLib POP Turbulize
+  VOPs  siLib Turbulize VOP   </description>
     </item>
     
     <item>
@@ -38,13 +39,23 @@
     </item>
     
     <item>
+      <title>siLib POP Turbulize Attribute</title>
+      <link>https://fxnut.github.io/siLib/helpcards/dops/silib_pop_turbulize_attribute/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fxnut.github.io/siLib/helpcards/dops/silib_pop_turbulize_attribute/</guid>
+      <description>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.
+For details on the corresponding VEX noise functions that you can use in your own VEX code, view the siLib Turbulize VOP node.</description>
+    </item>
+    
+    <item>
       <title>siLib Turbulize Attribute SOP</title>
       <link>https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/</guid>
       <description>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.
-This page also gives details on the corresponding VEX noise functions that you can use in your own VEX code.</description>
+For details on the corresponding VEX noise functions that you can use in your own VEX code, view the siLib Turbulize VOP node.</description>
     </item>
     
     <item>

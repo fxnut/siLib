@@ -1,12 +1,12 @@
 +++
 draft = false
-title = "siLib Turbulize Attribute SOP"
+title = "siLib POP Turbulize Attribute"
 description = ""
 
 [menu.main]
 parent = "silib_help_cards"
-identifier = "silib_turbulize_attribute_sop"
-weight = 100
+identifier = "silib_pop_turbulize_attribute"
+weight = 200
 
 +++
 
@@ -33,6 +33,7 @@ designates the suffix that is used to name the overloads of each noise function 
 {{% panel header="Notes" %}}
 **\*** These types of noise do not support Vector4 types as input. 
 The 4th component of frequency and offset will be greyed out.
+
 {{% /panel %}}
 
 All of the noise functions but one, are centered around zero and approximately cover the range from -1 to +1. In practice, you'll find
@@ -41,6 +42,7 @@ it rare for values to exceed &plusmn; 0.9.
 Alligator noise is different in that you could consider it to be an abs(noise) function. In other words it is centered on zero with a 
 range of -1 to +1, but any negative values are made positive to give the final range of 0 to +1. Note that this is very different from 
 being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common
+
 
 ## Parameters
 
@@ -84,3 +86,9 @@ So for example, for **P.y** you need to use the **y** component of amplitude.
 | Amplitude | The amplitude of each component of noise. |
 | Min Range | The minimum value of each component of noise. |
 | Max Range | The maximum value of each component of noise. |
+
+#### Bindings
+
+|   Name    | Description |
+|-----------|-------------|
+| Geometry | The name of the data on the DOP object that is storing the Geometry you want to modify. |

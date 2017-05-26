@@ -6,7 +6,7 @@ description = ""
 [menu.main]
 parent = "silib_help_cards"
 identifier = "silib_turbulize_vop"
-weight = 10
+weight = 300
 
 +++
 
@@ -124,5 +124,7 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
 | Offset | A vector to offset the center of the noise. Unlike some of the built-in noise nodes, you shouldn't see any issues when position and offset values are set around {0, 0, 0}. Internally, this is achieved by reflecting each successive layer of noise in each axis. |
 | Octaves | The number of layers of noise to apply. Each layer uses double the frequency of the previous layer. |
 | Roughness | Each layer of noise applied has its amplitude multiplied by this amount to progressively reduce the affect. A roughness of 1 means that each layer is applied with exactly the same amplitude as the first. A roughness of 0 will mean that only the first layer of noise has any affect. |
+| Bias | Optionally allows you to control the distribution of the noise using a Bias shaping function. |
+| Gain | Optionally allows you to control the distribution of the noise using a Gain shaping function. |
 | Amplitude | The amplitude of each component of noise. |
     

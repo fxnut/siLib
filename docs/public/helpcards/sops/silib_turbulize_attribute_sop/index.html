@@ -154,6 +154,28 @@
     
     
     
+        <li data-nav-id="/helpcards/dops/silib_pop_turbulize_attribute/" class="dd-item 
+         
+        
+        "
+        >
+            <a href="https://fxnut.github.io/siLib/helpcards/dops/silib_pop_turbulize_attribute/">
+                <span>siLib POP Turbulize Attribute</span>
+                
+                
+            </a>
+            
+            
+            
+        </li>
+    
+
+                
+                    
+    
+    
+    
+    
         <li data-nav-id="/helpcards/vops/silib_turbulize_vop/" class="dd-item 
          
         
@@ -224,12 +246,12 @@
 <li>
 <ul>
 <li><a href="#noise-types">Noise Types</a></li>
-<li><a href="#vex-noise-functions">VEX Noise Functions</a></li>
 <li><a href="#parameters">Parameters</a>
 <ul>
 <li>
 <ul>
 <li><a href="#noise">Noise</a></li>
+<li><a href="#amplitude">Amplitude</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -252,7 +274,7 @@
 <p>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the
 values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.</p>
 
-<p>This page also gives details on the corresponding VEX noise functions that you can use in your own VEX code.</p>
+<p>For details on the corresponding VEX noise functions that you can use in your own VEX code, view the <a href="https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/">siLib Turbulize VOP</a> node.</p>
 
 <h2 id="noise-types">Noise Types</h2>
 
@@ -263,7 +285,6 @@ designates the suffix that is used to name the overloads of each noise function 
 <thead>
 <tr>
 <th>Displayed Name</th>
-<th>siLib Function</th>
 <th>Range</th>
 </tr>
 </thead>
@@ -271,31 +292,26 @@ designates the suffix that is used to name the overloads of each noise function 
 <tbody>
 <tr>
 <td>Perlin</td>
-<td>si_noise <em>&lt;sig&gt;</em></td>
 <td>-1 -&gt; +1</td>
 </tr>
 
 <tr>
 <td>Simplex</td>
-<td>si_xnoise <em>&lt;sig&gt;</em></td>
 <td>-1 -&gt; +1</td>
 </tr>
 
 <tr>
 <td>Orig Perlin <strong>*</strong></td>
-<td>si_onoise <em>&lt;sig&gt;</em></td>
 <td>-1 -&gt; +1</td>
 </tr>
 
 <tr>
 <td>Sparse Convolution <strong>*</strong></td>
-<td>si_snoise <em>&lt;sig&gt;</em></td>
 <td>-1 -&gt; +1</td>
 </tr>
 
 <tr>
 <td>Alligator <strong>*</strong></td>
-<td>si_anoise <em>&lt;sig&gt;</em></td>
 <td>0 -&gt; +1</td>
 </tr>
 </tbody>
@@ -307,9 +323,6 @@ designates the suffix that is used to name the overloads of each noise function 
 	<div class="panel-heading">Notes</div>
 	<div class="panel-body"><p><strong>*</strong> These types of noise do not support Vector4 types as input.
 The 4th component of frequency and offset will be greyed out.</p>
-
-<p><em><strong>&lt;sig&gt;</strong></em> A two letter suffix designating the return type and input type
-e.g. &ldquo;fv&rdquo; means output type is <em>Float</em>, input type is <em>Vector3</em>. See below for more details.</p>
 </div>
 	
 </div>
@@ -321,63 +334,6 @@ it rare for values to exceed &plusmn; 0.9.</p>
 <p>Alligator noise is different in that you could consider it to be an abs(noise) function. In other words it is centered on zero with a
 range of -1 to +1, but any negative values are made positive to give the final range of 0 to +1. Note that this is very different from
 being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common</p>
-
-<h2 id="vex-noise-functions">VEX Noise Functions</h2>
-
-<p>The following VEX functions are made available so you can easily use these noise functions in your own VEX scripts. To use it, you
-need to import the &ldquo;si_noise.h&rdquo; file like this:</p>
-
-<pre><code>#include &quot;si_noise.h&quot;
-</code></pre>
-
-<div class="notices tip" ><p>If you get errors including this file, check that your HOUDINI_VEX_PATH is set
-(use hconfig on the Houdini command line) and make sure siLib is installed properly.</p>
-</div>
-
-
-<p>The code block below shows the prototypes for the VEX functions. Which input and output type you need will define which function
-you need to use.</p>
-
-<p>You&rsquo;ll notice that the last three noise types only support Vector3 types as input. The Turbulize Attribute node wraps these functions
-for you to emulate support for the <code>ff</code> and <code>vf</code> signatures.</p>
-
-<pre><code>// Perlin Noise
-
-float  si_noiseff (  float pos, freq, offset; float rough; int octaves)
-float  si_noisefv ( vector pos, freq, offset; float rough; int octaves)
-float  si_noisefp (vector4 pos, freq, offset; float rough; int octaves)
-vector si_noisevf (  float pos, freq, offset; float rough; int octaves)
-vector si_noisevv ( vector pos, freq, offset; float rough; int octaves)
-vector si_noisevp (vector4 pos, freq, offset; float rough; int octaves)
-
-
-// Simplex Noise
-
-float  si_xnoiseff(  float pos, freq, offset; float rough; int octaves)
-float  si_xnoisefv( vector pos, freq, offset; float rough; int octaves)
-float  si_xnoisefp(vector4 pos, freq, offset; float rough; int octaves)
-vector si_xnoisevf(  float pos, freq, offset; float rough; int octaves)
-vector si_xnoisevv( vector pos, freq, offset; float rough; int octaves)
-vector si_xnoisevp(vector4 pos, freq, offset; float rough; int octaves)
-
-
-// Orig Perlin Noise
-
-float  si_onoisefv( vector pos, freq, offset; float rough; int octaves)
-vector si_onoisevv( vector pos, freq, offset; float rough; int octaves)
-
-
-// Sparse Convolution Noise
-
-float  si_snoisefv( vector pos, freq, offset; float rough; int octaves)
-vector si_snoisevv( vector pos, freq, offset; float rough; int octaves)
-
-
-// Alligator Noise
-
-float  si_anoisefv( vector pos, freq, offset; float rough; int octaves)
-vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
-</code></pre>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -402,7 +358,7 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
 
 <tr>
 <td>Attribute Name</td>
-<td>Name of the attribute to modify. There is no need to use the &ldquo;@&rdquo; symbol as a prefix. Accepts names such as &ldquo;P&rdquo; or &ldquo;Cd&rdquo;, &ldquo;P.y&rdquo;, &ldquo;Cd.x&rdquo;, etc.</td>
+<td>Name of the attribute to modify. There is no need to use the &ldquo;@&rdquo; symbol as a prefix, although it won&rsquo;t break if you do. Accepts names such as &ldquo;P&rdquo; or &ldquo;Cd&rdquo;, &ldquo;P.y&rdquo;, &ldquo;Cd.x&rdquo;, etc. If the attribute doesn&rsquo;t exist, it will create it for you.</td>
 </tr>
 
 <tr>
@@ -411,7 +367,7 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
 </tr>
 
 <tr>
-<td>Type</td>
+<td>Attribute Type</td>
 <td>The data type of the attribute.</td>
 </tr>
 
@@ -439,6 +395,11 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
 </tr>
 
 <tr>
+<td>Operation</td>
+<td>Select whether to add or multiply the noise with the existing value of the attribute.</td>
+</tr>
+
+<tr>
 <td>Frequency</td>
 <td>The frequency of the noise. By default, the y and z components are linked to the x component. For Perlin and Simplex noise, you can use the 4th component to set the speed of noise evolution when modifying the 4th component of the Offset parameter. For other noise types, the 4th component will be disabled as they don’t support 4 component inputs.</td>
 </tr>
@@ -459,8 +420,54 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
 </tr>
 
 <tr>
+<td>Bias</td>
+<td>Optionally allows you to control the distribution of the noise using a Bias shaping function.</td>
+</tr>
+
+<tr>
+<td>Gain</td>
+<td>Optionally allows you to control the distribution of the noise using a Gain shaping function.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="amplitude">Amplitude</h4>
+
+<p>You can specify the size of the noise using two methods.</p>
+
+<ul>
+<li><strong>By Amplitude</strong>: A multiplier on the noise value</li>
+<li><strong>By Range</strong>: Fits the noise to the specified range. Note that Alligator noise will also be fitted to the full range, even though the original distribution
+is only from 0 to 1.</li>
+</ul>
+
+<div class="notices tip" ><p>If you are modifying a component of a vector attribute, then you need to use the matching component of amplitude.
+So for example, for <strong>P.y</strong> you need to use the <strong>y</strong> component of amplitude.</p>
+</div>
+
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
 <td>Amplitude</td>
 <td>The amplitude of each component of noise.</td>
+</tr>
+
+<tr>
+<td>Min Range</td>
+<td>The minimum value of each component of noise.</td>
+</tr>
+
+<tr>
+<td>Max Range</td>
+<td>The maximum value of each component of noise.</td>
 </tr>
 </tbody>
 </table>
@@ -528,6 +535,17 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
             
         
                 
+                    
+            
+            
+                
+                    
+                
+                
+                
+            
+        
+                
             
         
           
@@ -539,7 +557,7 @@ vector si_anoisevv( vector pos, freq, offset; float rough; int octaves)
             <a class="nav nav-prev" href="https://fxnut.github.io/siLib/silib_helpcards/" title="Help Cards"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/" title="siLib Turbulize VOP" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="https://fxnut.github.io/siLib/helpcards/dops/silib_pop_turbulize_attribute/" title="siLib POP Turbulize Attribute" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
