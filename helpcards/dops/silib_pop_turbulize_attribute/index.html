@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="https://fxnut.github.io/siLib/images/favicon.png" type="image/x-icon" />
 
-    <title>header :: siLib</title>
+    <title>siLib POP Turbulize Attribute :: siLib</title>
     <link href="https://fxnut.github.io/siLib/css/nucleus.css" rel="stylesheet">
     <link href="https://fxnut.github.io/siLib/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fxnut.github.io/siLib/css/hybrid.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     
 <link rel="stylesheet" type="text/css" href="https://fxnut.github.io/siLib/css/siLib.css"> 
   </head>
-  <body class="" data-url="/_header/">
+  <body class="" data-url="/helpcards/dops/silib_pop_turbulize_attribute/">
     
 <nav id="sidebar" class="">
   <div id="header-wrapper">
@@ -100,18 +100,24 @@
     
         <li data-nav-id="/silib_helpcards/" class="dd-item 
          
-        
+        parent
         "
         >
             <a href="https://fxnut.github.io/siLib/silib_helpcards/">
                 <span>Help Cards</span>
                 
                     
-                        <i class="fa fa-angle-right fa-lg category-icon"></i>
+                        <i class="fa fa-angle-down fa-lg category-icon"></i>
                     
                 
                 
             </a>
+            
+                
+                
+                
+                    
+                
             
             
             
@@ -145,7 +151,7 @@
     
     
         <li data-nav-id="/helpcards/dops/silib_pop_turbulize_attribute/" class="dd-item 
-         
+        active 
         
         "
         >
@@ -154,6 +160,10 @@
                 
                 
             </a>
+            
+                
+                
+                
             
             
             
@@ -225,7 +235,9 @@
                   siLib
                 </a>
                 
-                 > header
+                   / <a href='https://fxnut.github.io/siLib/silib_helpcards/'>Help Cards</a> / <a href='https://fxnut.github.io/siLib/helpcards/dops/silib_pop_turbulize_attribute/'>siLib POP Turbulize Attribute</a>
+                
+                
             </div>
             <div class="progress">
     <div class="wrapper">
@@ -233,9 +245,15 @@
 <ul>
 <li>
 <ul>
+<li><a href="#noise-types">Noise Types</a></li>
+<li><a href="#parameters">Parameters</a>
+<ul>
 <li>
 <ul>
-<li><a href="#silib-logo-images-silib-logo2-svg-headerlogo-silib"><img src="https://fxnut.github.io/siLib/images/siLib_logo2.svg#headerlogo" alt="siLib Logo" /> <strong>siLib</strong></a></li>
+<li><a href="#noise">Noise</a></li>
+<li><a href="#amplitude">Amplitude</a></li>
+<li><a href="#bindings">Bindings</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -248,19 +266,233 @@
         
         <div id="body-inner">
           
-            <h1>header</h1>
+            <h1>siLib POP Turbulize Attribute</h1>
           
 
 
 
 
-<h3 id="silib-logo-images-silib-logo2-svg-headerlogo-silib"><img src="https://fxnut.github.io/siLib/images/siLib_logo2.svg#headerlogo" alt="siLib Logo" /> <strong>siLib</strong></h3>
+<p>Lets you add noise to an attribute using one of 5 types of FBM based noise. The range of the noise is kept consistent regardless of the
+values of octaves and roughness. It also avoids the issues that built-in noise nodes have for input positions located around {0, 0, 0}.</p>
+
+<p>For details on the corresponding VEX noise functions that you can use in your own VEX code, view the <a href="https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/">siLib Turbulize VOP</a> node.</p>
+
+<h2 id="noise-types">Noise Types</h2>
+
+<p>The table below shows the different types of noise available, and the corresponding Vex function that is being called. The <sig> token
+designates the suffix that is used to name the overloads of each noise function according to input and output type. See below for more details.</p>
+
+<table>
+<thead>
+<tr>
+<th>Displayed Name</th>
+<th>Range</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Perlin</td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Simplex</td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Orig Perlin <strong>*</strong></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Sparse Convolution <strong>*</strong></td>
+<td>-1 -&gt; +1</td>
+</tr>
+
+<tr>
+<td>Alligator <strong>*</strong></td>
+<td>0 -&gt; +1</td>
+</tr>
+</tbody>
+</table>
+
+<p></p>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Notes</div>
+	<div class="panel-body"><p><strong>*</strong> These types of noise do not support Vector4 types as input.
+The 4th component of frequency and offset will be greyed out.</p>
+</div>
+	
+</div>
+
+
+<p>All of the noise functions but one, are centered around zero and approximately cover the range from -1 to +1. In practice, you&rsquo;ll find
+it rare for values to exceed &plusmn; 0.9.</p>
+
+<p>Alligator noise is different in that you could consider it to be an abs(noise) function. In other words it is centered on zero with a
+range of -1 to +1, but any negative values are made positive to give the final range of 0 to +1. Note that this is very different from
+being a distribution that is centered at 0.5 and having a range of 0 to 1, as outlying values are less common</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Group</td>
+<td>Subset of geometry to affect.</td>
+</tr>
+
+<tr>
+<td>Group Type</td>
+<td>Type of group.</td>
+</tr>
+
+<tr>
+<td>Attribute Name</td>
+<td>Name of the attribute to modify. There is no need to use the &ldquo;@&rdquo; symbol as a prefix, although it won&rsquo;t break if you do. Accepts names such as &ldquo;P&rdquo; or &ldquo;Cd&rdquo;, &ldquo;P.y&rdquo;, &ldquo;Cd.x&rdquo;, etc. If the attribute doesn&rsquo;t exist, it will create it for you.</td>
+</tr>
+
+<tr>
+<td>Attribute Class</td>
+<td>What type of geometry the attribute is stored on.</td>
+</tr>
+
+<tr>
+<td>Attribute Type</td>
+<td>The data type of the attribute.</td>
+</tr>
+
+<tr>
+<td>Update Normals</td>
+<td>This checkbox only appears if you are modifying the point position P or a component of it (e.g. P.y). It lets you enable/disable the automatic recalculation of point normals after the attribute has been changed.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="noise">Noise</h4>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Noise Type</td>
+<td>The class of noise to apply</td>
+</tr>
+
+<tr>
+<td>Operation</td>
+<td>Select whether to add or multiply the noise with the existing value of the attribute.</td>
+</tr>
+
+<tr>
+<td>Frequency</td>
+<td>The frequency of the noise. By default, the y and z components are linked to the x component. For Perlin and Simplex noise, you can use the 4th component to set the speed of noise evolution when modifying the 4th component of the Offset parameter. For other noise types, the 4th component will be disabled as they don’t support 4 component inputs.</td>
+</tr>
+
+<tr>
+<td>Offset</td>
+<td>A vector to offset the center of the noise. Unlike some of the built-in noise nodes, you shouldn’t see any issues when position and offset values are set around {0, 0, 0}. Internally, this is achieved by reflecting each successive layer of noise in each axis.</td>
+</tr>
+
+<tr>
+<td>Octaves</td>
+<td>The number of layers of noise to apply. Each layer uses double the frequency of the previous layer.</td>
+</tr>
+
+<tr>
+<td>Roughness</td>
+<td>Each layer of noise applied has its amplitude multiplied by this amount to progressively reduce the affect. A roughness of 1 means that each layer is applied with exactly the same amplitude as the first. A roughness of 0 will mean that only the first layer of noise has any affect.</td>
+</tr>
+
+<tr>
+<td>Bias</td>
+<td>Optionally allows you to control the distribution of the noise using a Bias shaping function.</td>
+</tr>
+
+<tr>
+<td>Gain</td>
+<td>Optionally allows you to control the distribution of the noise using a Gain shaping function.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="amplitude">Amplitude</h4>
+
+<p>You can specify the size of the noise using two methods.</p>
+
+<ul>
+<li><strong>By Amplitude</strong>: A multiplier on the noise value</li>
+<li><strong>By Range</strong>: Fits the noise to the specified range. Note that Alligator noise will also be fitted to the full range, even though the original distribution
+is only from 0 to 1.</li>
+</ul>
+
+<div class="notices tip" ><p>If you are modifying a component of a vector attribute, then you need to use the matching component of amplitude.
+So for example, for <strong>P.y</strong> you need to use the <strong>y</strong> component of amplitude.</p>
+</div>
+
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Amplitude</td>
+<td>The amplitude of each component of noise.</td>
+</tr>
+
+<tr>
+<td>Min Range</td>
+<td>The minimum value of each component of noise.</td>
+</tr>
+
+<tr>
+<td>Max Range</td>
+<td>The maximum value of each component of noise.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="bindings">Bindings</h4>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>The name of the data on the DOP object that is storing the Geometry you want to modify.</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class=" footline" >
-	
-	    <i class='fa fa-user'></i> <a href="mailto:andy@andynicholas.com">Andy Nicholas</a>  <i class='fa fa-calendar'></i> 01/01/0001
-	    </div>
 	
 </footer>
 
@@ -312,6 +544,7 @@
             
                 
                     
+                    
                 
                 
                 
@@ -322,6 +555,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -337,6 +573,10 @@
 
 
         
+            <a class="nav nav-prev" href="https://fxnut.github.io/siLib/helpcards/sops/silib_turbulize_attribute_sop/" title="siLib Turbulize Attribute SOP"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="https://fxnut.github.io/siLib/helpcards/vops/silib_turbulize_vop/" title="siLib Turbulize VOP" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
