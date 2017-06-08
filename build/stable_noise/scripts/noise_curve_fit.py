@@ -241,7 +241,7 @@ def generate_code(out_type, out_char, in_type, in_char, noise_fn, lookup_fn, rem
 
     {out_type} amp_out = {lookup_fn}(rough, octaves);
     nval = {remap_out_fn};    
-    
+    {snoise_offset}
     return nval;
 }}
 """
@@ -250,7 +250,17 @@ def generate_code(out_type, out_char, in_type, in_char, noise_fn, lookup_fn, rem
     remap_out_fn = remap_out_fn.format(noise_fn=noise_fn, out_type=out_type, in_type=in_type)
     lookup_fn = lookup_fn.format(noise_fn=noise_fn);
     
-    return code.format(out_type=out_type, out_char=out_char, in_type=in_type, in_char=in_char, noise_fn=noise_fn, lookup_fn=lookup_fn, remap_in_fn=remap_in_fn, remap_out_fn=remap_out_fn)
+    snoise_offset = ""
+    if noise_fn=="snoise":
+        snoise_offset = "float mulval = octaves*rough;\n"
+        if out_char=="v":
+            snoise_offset += "    float powval = rough*mulval;\n"
+            snoise_offset += "    nval += set(0.0005*powval -0.0035*mulval - 0.015, 0.015 + 0.00525*mulval - 0.0007*powval, 0.0075 + 0.00475*mulval - 0.002*powval);\n"
+        else:
+            snoise_offset += "    nval += -0.005*mulval - 0.02;\n"
+            
+
+    return code.format(out_type=out_type, out_char=out_char, in_type=in_type, in_char=in_char, noise_fn=noise_fn, lookup_fn=lookup_fn, remap_in_fn=remap_in_fn, remap_out_fn=remap_out_fn, snoise_offset=snoise_offset)
 
     
 def generate_noise_functions():
