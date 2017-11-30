@@ -1,19 +1,51 @@
 // siLib. Houdini Digital Assets and Tools For A Post-Softimage World
 // Copyright (C) 2017 Andy Nicholas
 // https://github.com/fxnut/siLib
-
+// 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-
+// 
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-
+// 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses.
+
+#ifndef SILIB_STABLENOISE
+#define SILIB_STABLENOISE
+
+
+float silib_stablenoise_fbias(float base, bias) 
+{
+    if (base <= 0 || base >=1)
+        return base;
+    return bias / (((1.0 / base) - 2) * (1 - bias) + 1);
+}
+
+
+vector silib_stablenoise_vbias(vector base; float bias) 
+{
+    return set(silib_stablenoise_fbias(base.x,bias), silib_stablenoise_fbias(base.y,bias), silib_stablenoise_fbias(base.z,bias));
+}
+
+
+float silib_stablenoise_fgain(float base, gain) 
+{
+    if (base < 0.5)
+        return silib_stablenoise_fbias(2*base, gain)*0.5;
+    else
+        return 1-silib_stablenoise_fbias(2*(1-base), gain)*0.5;   
+}
+
+vector silib_stablenoise_vgain(vector base; float gain) 
+{
+    return set(silib_stablenoise_fgain(base.x,gain), silib_stablenoise_fgain(base.y,gain), silib_stablenoise_fgain(base.z,gain));
+}
+
 
 float silib_noise_amplitude_lookup(const float rough; const int _octaves)
 {
@@ -567,3 +599,5 @@ vector si_anoisevv(vector pos; vector freq; vector offset; float rough; int octa
     
     return nval;
 }
+
+#endif
