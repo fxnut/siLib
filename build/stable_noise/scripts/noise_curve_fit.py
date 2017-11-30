@@ -318,11 +318,41 @@ def generate_noise_functions():
 
     return output_str
 
+bias_gain_vex_functions="""
+float silib_stablenoise_fbias(float base, bias) 
+{
+    if (base <= 0 || base >=1)
+        return base;
+    return bias / (((1.0 / base) - 2) * (1 - bias) + 1);
+}
+
+
+vector silib_stablenoise_vbias(vector base; float bias) 
+{
+    return set(fbias(base.x,bias), fbias(base.y,bias), fbias(base.z,bias));
+}
+
+
+float silib_stablenoise_fgain(float base, gain) 
+{
+    if (base < 0.5)
+        return fbias(2*base, gain)*0.5;
+    else
+        return 1-fbias(2*(1-base), gain)*0.5;   
+}
+
+vector silib_stablenoise_vgain(vector base; float gain) 
+{
+    return set(fgain(base.x,gain), fgain(base.y,gain), fgain(base.z,gain));
+}
+
+"""
 
 def main():
 
     final_vex_code = "// "+__doc__.strip().replace("\n","\n// ")
     final_vex_code += "\n\n#ifndef SILIB_STABLENOISE\n#define SILIB_STABLENOISE\n\n"
+    final_vex_code += bias_gain_vex_functions
     noise_name_list = ["noise", "xnoise", "onoise", "snoise", "anoise"]
 
     for noise_name in noise_name_list:

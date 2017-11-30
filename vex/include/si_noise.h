@@ -19,6 +19,34 @@
 #define SILIB_STABLENOISE
 
 
+float silib_stablenoise_fbias(float base, bias) 
+{
+    if (base <= 0 || base >=1)
+        return base;
+    return bias / (((1.0 / base) - 2) * (1 - bias) + 1);
+}
+
+
+vector silib_stablenoise_vbias(vector base; float bias) 
+{
+    return set(silib_stablenoise_fbias(base.x,bias), silib_stablenoise_fbias(base.y,bias), silib_stablenoise_fbias(base.z,bias));
+}
+
+
+float silib_stablenoise_fgain(float base, gain) 
+{
+    if (base < 0.5)
+        return silib_stablenoise_fbias(2*base, gain)*0.5;
+    else
+        return 1-silib_stablenoise_fbias(2*(1-base), gain)*0.5;   
+}
+
+vector silib_stablenoise_vgain(vector base; float gain) 
+{
+    return set(silib_stablenoise_fgain(base.x,gain), silib_stablenoise_fgain(base.y,gain), silib_stablenoise_fgain(base.z,gain));
+}
+
+
 float silib_noise_amplitude_lookup(const float rough; const int _octaves)
 {
     // Change octave range from 1-10 to 0-9 and clamp
