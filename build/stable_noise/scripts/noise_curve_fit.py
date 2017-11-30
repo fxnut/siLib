@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 """
 siLib. Houdini Digital Assets and Tools For A Post-Softimage World
 Copyright (C) 2017 Andy Nicholas
@@ -319,7 +321,8 @@ def generate_noise_functions():
 
 def main():
 
-    final_vex_code = ""
+    final_vex_code = "// "+__doc__.strip().replace("\n","\n// ")
+    final_vex_code += "\n\n#ifndef SILIB_STABLENOISE\n#define SILIB_STABLENOISE\n\n"
     noise_name_list = ["noise", "xnoise", "onoise", "snoise", "anoise"]
 
     for noise_name in noise_name_list:
@@ -332,8 +335,12 @@ def main():
 
     final_vex_code += generate_noise_functions()
 
+    final_vex_code += "\n#endif\n"
+
     fname = os.path.normpath(os.path.join(os.path.dirname(__file__),"..","vex","si_noise.h"))
     with open(fname,"w") as fhandle:
         fhandle.write(final_vex_code)
 
-main()
+if __name__ == '__main__':
+    main()
+
